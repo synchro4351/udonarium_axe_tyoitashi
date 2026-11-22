@@ -283,6 +283,42 @@ describe('PanelWindowService', () => {
       expect(restored).not.toHaveBeenCalled();
     });
 
+    it('takes a panel from the table into the window of the group out last, as a tab beside the rest', () => {
+      vi.useFakeTimers();
+      const opened = fakeWindow();
+      const windows = setup(() => opened);
+      const abroad = frameHolding([]);
+      const home = frameHolding([]);
+      let made = 0;
+      const panels = {
+        openFrame: vi.fn(() => {
+          made += 1;
+          return made === 1 ? abroad : home;
+        }),
+      } as unknown as never;
+      windows.popOutGroup(frameHolding(['chat']), panels);
+      expect(windows.joinable()).toEqual(['group:panel-1']);
+
+      const later = frameHolding(['sheet']);
+      expect(windows.joinWindow(later)).toBe(true);
+      expect(abroad.taken).toEqual(['chat', 'sheet']);
+      expect(later.dismissFrame).toHaveBeenCalled();
+
+      // Shut, the window sends every panel home together, and none is left to join.
+      (opened as { closed: boolean }).closed = true;
+      vi.advanceTimersByTime(500);
+      expect(home.taken).toEqual(['chat', 'sheet']);
+      expect(windows.joinable()).toEqual([]);
+    });
+
+    it('leaves a panel where it stands while no window of panels is out to join', () => {
+      const windows = setup(() => fakeWindow());
+      const here = frameHolding(['sheet']);
+
+      expect(windows.joinWindow(here)).toBe(false);
+      expect(here.dismissFrame).not.toHaveBeenCalled();
+    });
+
     it('stands them again where the group was, not in the corner of the screen', () => {
       vi.useFakeTimers();
       const opened = fakeWindow();
