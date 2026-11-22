@@ -70,6 +70,7 @@
       "roomSnapshot": "자동 저장",
       "replay": "리플레이",
       "popOut": "별도 창으로 열기",
+      "joinWindow": "열려 있는 다른 창에 탭으로 넣기",
       "soundSettings": "소리 설정",
       "stampPacks": "스탬프 관리"
     },

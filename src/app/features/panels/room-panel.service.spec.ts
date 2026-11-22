@@ -76,7 +76,9 @@ describe('RoomPanelService', () => {
   it('offers to send a panel on the table to a window of its own', () => {
     service.open('cutInList');
 
-    expect(option().controls?.map((control) => control.icon)).toEqual(['open_in_new']);
+    expect(option().controls?.map((control) => control.icon)).toEqual(['open_in_new', 'input']);
+    // The button that joins a window shows only while a window of panels is out.
+    expect(option().controls?.[1].shown?.()).toBe(false);
     expect(option().windowed).toBe(false);
   });
 

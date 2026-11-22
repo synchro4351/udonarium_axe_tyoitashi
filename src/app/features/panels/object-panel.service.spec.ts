@@ -63,7 +63,9 @@ describe('ObjectPanelService', () => {
     service.openSheet(terrain, 'Terrain - Hill', { width: 600, height: 300 });
 
     const [, option] = openLazy.mock.calls[0];
-    expect(option.controls?.map((control: { icon: string }) => control.icon)).toEqual(['open_in_new']);
+    expect(option.controls?.map((control: { icon: string }) => control.icon)).toEqual(['open_in_new', 'input']);
+    // The button that joins a window shows only while a window of panels is out.
+    expect(option.controls?.[1].shown?.()).toBe(false);
   });
 
   it('tells a panel drawn into a window that it is in one, and offers it no way out again', () => {

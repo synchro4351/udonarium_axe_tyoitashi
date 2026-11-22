@@ -70,6 +70,7 @@
       "roomSnapshot": "Auto Save",
       "replay": "Replay",
       "popOut": "Open in its own window",
+      "joinWindow": "Add as a tab to the window already open",
       "soundSettings": "Sound settings",
       "stampPacks": "Manage stamps"
     },

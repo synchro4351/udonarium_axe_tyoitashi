@@ -122,6 +122,11 @@ export class PanelWindowService {
   /** Which panels are currently in windows of their own. */
   readonly detached = signal<readonly string[]>([]);
 
+  /** The frame each window of a group stands its panels in, by the window's key, for more to join. */
+  private readonly abroadFrames = new Map<string, () => PanelFrame | null>();
+  /** The windows of a group that more panels can join, the latest last. */
+  readonly joinable = signal<readonly string[]>([]);
+
   constructor() {
     this.document.defaultView?.addEventListener('pagehide', () => this.closeAll());
   }
@@ -214,8 +219,9 @@ export class PanelWindowService {
     let abroad: PanelFrame | null = null;
     const box = frame.frameSize();
     const home = { ...frame.framePlace(), ...box };
-    return this.popOut({
-      key: `group:${frame.frameKey}`,
+    const key = `group:${frame.frameKey}`;
+    const went = this.popOut({
+      key,
       width: box.width,
       height: box.height,
       open: (host) => {
@@ -238,6 +244,31 @@ export class PanelWindowService {
       },
       restore: () => undefined,
     });
+    if (went) {
+      this.abroadFrames.set(key, () => abroad);
+      this.joinable.set([...this.abroadFrames.keys()]);
+    }
+    return went;
+  }
+
+  /**
+   * Moves the panels of a frame on the table into the window of a group taken out last, as tabs
+   * beside the panels already there, so a window can be gathered after it was taken out as well as
+   * before. They come home with the rest when that window is shut. False, leaving them where they
+   * stand, where no such window is out.
+   */
+  joinWindow(frame: PanelFrame): boolean {
+    const key = [...this.abroadFrames.keys()].at(-1);
+    const abroad = key ? (this.abroadFrames.get(key)?.() ?? null) : null;
+    const held = key ? this.windows.get(key) : undefined;
+    if (!key || !abroad || !held) return false;
+    for (const handoff of frame.handOverAll()) {
+      handoff.panel.windowed.set(true);
+      abroad.takeIn(handoff);
+    }
+    frame.dismissFrame();
+    held.window.focus();
+    return true;
   }
 
   /**
@@ -273,6 +304,7 @@ export class PanelWindowService {
 
     this.windows.delete(key);
     this.detached.set([...this.windows.keys()]);
+    if (this.abroadFrames.delete(key)) this.joinable.set([...this.abroadFrames.keys()]);
     clearInterval(held.watchdog);
     if (this.windows.size === 0) {
       this.sheetWatch?.disconnect();

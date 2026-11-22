@@ -70,6 +70,7 @@
       "roomSnapshot": "自動保存",
       "replay": "リプレイ",
       "popOut": "別のウィンドウで開く",
+      "joinWindow": "開いている別のウィンドウにタブとして入れる",
       "soundSettings": "音の設定",
       "stampPacks": "スタンプ管理"
     },

@@ -154,7 +154,8 @@ export class RoomPanelService {
         press: (owner) => {
           if (owner.windowed()) return;
           const frame = owner.standingFrame;
-          if (frame && frame.panelCount() > 1) {
+          // Taken out as a group even alone, so the window can take more panels in afterwards.
+          if (frame) {
             windows.popOutGroup(frame, this.panelService);
             return;
           }
@@ -168,6 +169,17 @@ export class RoomPanelService {
           // Closed only once the window is really there: one the browser refuses would
           // otherwise take the panel with it.
           if (went) owner.close();
+        },
+      },
+      {
+        icon: 'input',
+        label: this.t('common.panel.joinWindow'),
+        // Offered while a window of panels is out, for this one to join it as a tab.
+        shown: () => windows.isSupported && windows.joinable().length > 0,
+        press: (owner) => {
+          if (owner.windowed()) return;
+          const frame = owner.standingFrame;
+          if (frame) windows.joinWindow(frame);
         },
       },
     ];
