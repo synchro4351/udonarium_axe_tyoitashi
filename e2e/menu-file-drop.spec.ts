@@ -18,7 +18,7 @@ async function dropFile(page: Page, name: string, text: string) {
 
 test('takes an arrangement of the menus dropped on the page, and leaves any other JSON alone', async ({ page }) => {
   await waitAppReady(page);
-  const owned = page.locator('app-pl-toolbar [title="所有キャラクター一覧"]');
+  const owned = page.locator('pl-toolbar [title="所有キャラクター一覧"]');
   await expect(owned).toBeVisible({ timeout: 10000 });
 
   await dropFile(page, 'notes.json', JSON.stringify({ hello: 'world' }));

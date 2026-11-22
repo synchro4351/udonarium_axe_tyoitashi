@@ -6,7 +6,7 @@ test('keeps the four initial samples and offers no optional example library', as
   await waitAppReady(page);
   await openPanel(page, 'カットイン');
   await closeFabMenu(page);
-  const panel = page.locator('app-cut-in-list');
+  const panel = page.locator('cut-in-list');
   const entries = panel.locator('aside ul[role="listbox"] > li');
   await expect(entries).toHaveCount(4);
   await entries.filter({ hasText: 'Sample_Template' }).click();

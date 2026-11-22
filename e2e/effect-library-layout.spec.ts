@@ -272,7 +272,7 @@ test.describe('the list of effects', () => {
     await expect(menu.getByRole('menuitem')).toHaveText([
       /既定を反映/,
       /足りない既定を追加/,
-      /エフェクト集を書き出す/,
+      /エフェクト集を保存/,
       /系統をすべて畳む/,
       /系統をすべて開く/,
     ]);

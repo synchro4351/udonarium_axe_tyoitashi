@@ -29,13 +29,14 @@ test.describe('card handling for old maid', () => {
     await page.addInitScript(() => localStorage.setItem('ui-lang', 'ja'));
     await waitAppReady(page);
     await createCardStack(page);
-    await openHandRail(page);
   });
 
   test('deals the deck out into the hands, leaving one joker, and makes a discard pile of the pairs thrown away', async ({
     page,
   }) => {
     await dealAll(page);
+    // The hand rail is opened once the deck is dealt, since it stands over the deck on the table.
+    await openHandRail(page);
     const hand = page.locator('hand-rail');
     await expect(hand).toContainText('手札 53枚', { timeout: 15000 });
     await expect(page.locator('card-stack').first()).toContainText('1', { timeout: 5000 });
@@ -46,8 +47,9 @@ test.describe('card handling for old maid', () => {
     await expect(page.locator('card-stack')).toHaveCount(2, { timeout: 5000 });
   });
 
-  test('引く操作は全員の手札の一覧で案内され、専用の窓がないこと', async ({ page }) => {
-    const hand = page.locator('app-hand-rail');
+  test("guides drawing through the window of everyone's hands, with no window of its own", async ({ page }) => {
+    await openHandRail(page);
+    const hand = page.locator('hand-rail');
     await expect(hand.locator('[data-testid="hand-draw-open"]')).toHaveCount(0);
     await hand.locator('[data-testid="hand-overview-open"]').click();
 
