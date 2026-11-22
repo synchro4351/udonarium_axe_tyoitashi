@@ -15,6 +15,7 @@
     "e2e:serve": "node e2e/serve-dist.mjs",
     "e2e:related": "node scripts/e2e-related.mjs --run --build",
     "build:mcp": "npm run build -w tools/axe-mcp",
+    "build:mcpb": "npm run build -w tools/axe-mcp && node tools/axe-mcp/build-mcpb.mjs",
     "test:mcp": "npm test -w tools/axe-mcp"
   },
   "private": true,
