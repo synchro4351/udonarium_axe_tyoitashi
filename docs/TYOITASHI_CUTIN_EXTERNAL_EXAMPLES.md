@@ -39,6 +39,7 @@
 ## ルートREADMEへの案
 
 > ### カットインの演出見本
-> 追加の演出見本16個は、アプリには含めていません。[examples/tyoitashi-cut-ins.zip](https://github.com/synchro4351/udonarium_axe/raw/main/examples/tyoitashi-cut-ins.zip)を保存し、カットインを読み込む操作と同じようにZIPを卓へ読み込むと追加できます。画像や音声は含まず、通常のカットインとして編集できます。
+>
+> 追加の演出見本16個は、アプリには含めていません。[examples/tyoitashi-cut-ins.zip](https://github.com/synchro4351/udonarium_axe_tyoitashi/raw/main/examples/tyoitashi-cut-ins.zip)を保存し、カットインを読み込む操作と同じようにZIPを卓へ読み込むと追加できます。画像や音声は含まず、通常のカットインとして編集できます。
 
 公開索引のmainにも同じZIPとXMLを配置する。

@@ -9,7 +9,7 @@ export const TYOITASHI_BRIDGE_PATH = 'assets/axe-mcp/axe-mcp.mjs';
 
 /** The steps for running the AI on a Claude Pro or Max plan through Claude Code (tyoitashi), as the fork shows them. */
 export const SUBSCRIPTION_GUIDE_URL =
-  'https://github.com/synchro4351/udonarium_axe/blob/codex/synwork-integration/docs/TYOITASHI_AI_GM_SUBSCRIPTION.md';
+  'https://github.com/synchro4351/udonarium_axe_tyoitashi/blob/codex/synwork-integration/docs/TYOITASHI_AI_GM_SUBSCRIPTION.md';
 
 /** The address of tyoitashi's bridge on the site the page is served from. */
 export function aiLinkBridgeUrl(): string {
