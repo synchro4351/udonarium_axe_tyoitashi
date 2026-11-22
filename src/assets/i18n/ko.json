@@ -4618,6 +4618,7 @@
         "serverRetrying": "방 서버와의 연결이 끊어졌습니다. 다시 연결하는 중…",
         "serverRecovered": "방 서버와의 연결을 복구했습니다.",
         "serverFailed": "방 서버와 다시 연결하지 못했습니다. 복구되지 않으면 접속 정보에서 재접속해 주세요.",
+        "serverDropKept": "방 서버와의 연결이 {{time}}부터 {{seconds}}초 동안 끊어져 있었습니다(지금은 복구되었습니다).",
         "serverLamp": "방 서버에 다시 연결하는 중"
       },
       "invite": {

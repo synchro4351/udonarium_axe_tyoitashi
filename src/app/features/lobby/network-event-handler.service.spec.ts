@@ -63,6 +63,7 @@ describe('NetworkEventHandlerService', () => {
   let chatStub: {
     sendSystemMessage: ReturnType<typeof vi.fn>;
     sendSystemNotice: ReturnType<typeof vi.fn>;
+    tellSelfSystemNotice: ReturnType<typeof vi.fn>;
   };
   let clockStub: { calibrate: ReturnType<typeof vi.fn> };
   let stubChange: StubObjectChange;
@@ -73,6 +74,7 @@ describe('NetworkEventHandlerService', () => {
     chatStub = {
       sendSystemMessage: vi.fn(),
       sendSystemNotice: vi.fn(),
+      tellSelfSystemNotice: vi.fn(),
     };
     clockStub = { calibrate: vi.fn() };
     stubChange = new StubObjectChange();
@@ -439,9 +441,10 @@ describe('NetworkEventHandlerService', () => {
     const shown = vi.spyOn(TestBed.inject(SnackbarService), 'show').mockImplementation(() => {});
 
     try {
+      vi.setSystemTime(new Date(2026, 10, 22, 21, 5, 9));
       stubChange.peerReconnect$.emit({ peerId: 'my-seat', state: 'retrying' });
       expect(shown).not.toHaveBeenCalled();
-      vi.advanceTimersByTime(NetworkEventHandlerService.SERVER_DROP_QUIET_MS);
+      vi.advanceTimersByTime(NetworkEventHandlerService.SERVER_DROP_QUIET_MS + 2000);
       stubChange.peerReconnect$.emit({ peerId: 'my-seat', state: 'recovered' });
 
       expect(shown.mock.calls.map(([text]) => text)).toEqual([
@@ -449,6 +452,13 @@ describe('NetworkEventHandlerService', () => {
         '部屋のサーバーとの接続を復旧しました。',
       ]);
       expect(chatStub.sendSystemNotice).not.toHaveBeenCalled();
+      // A line of the drop is kept in the system tab, for this reader alone, once the link is back.
+      expect(chatStub.tellSelfSystemNotice).toHaveBeenCalledOnce();
+      const [kind, text] = chatStub.tellSelfSystemNotice.mock.calls[0] as [string, string];
+      expect(kind).toBe('room');
+      expect(text).toContain('feature.lobby.peerReconnect.serverDropKept');
+      expect(text).toContain('21:05:09');
+      expect(text).toContain('12');
     } finally {
       vi.useRealTimers();
     }
@@ -470,6 +480,7 @@ describe('NetworkEventHandlerService', () => {
 
       expect(handler.serverLinkDown()).toBe(false);
       expect(shown).not.toHaveBeenCalled();
+      expect(chatStub.tellSelfSystemNotice).not.toHaveBeenCalled();
     } finally {
       vi.useRealTimers();
     }

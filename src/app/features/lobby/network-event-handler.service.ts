@@ -95,6 +95,8 @@ export class NetworkEventHandlerService {
   /** Whether the link to the room server is down and being tried again, for the lamp. */
   readonly serverLinkDown = signal(false);
   private serverDropNotice: ReturnType<typeof setTimeout> | null = null;
+  /** When the link to the room server went down, for the line kept of a drop once it ends; null while it is up. */
+  private serverDropSince: number | null = null;
   /** Whether the reader was told of the drop, so they are told of its end too. */
   private serverDropTold = false;
   private serverErrorReconnectAttempts = 0;
@@ -274,6 +276,7 @@ export class NetworkEventHandlerService {
     switch (state) {
       case 'retrying':
         this.serverLinkDown.set(true);
+        this.serverDropSince ??= Date.now();
         if (this.serverDropNotice !== null || this.serverDropTold) return;
         this.serverDropNotice = setTimeout(() => {
           this.serverDropNotice = null;
@@ -287,13 +290,19 @@ export class NetworkEventHandlerService {
         this.cancelServerDropNotice();
         const told = this.serverDropTold;
         this.serverDropTold = false;
-        if (told) this.tellServerLink('recovered');
+        const since = this.serverDropSince;
+        this.serverDropSince = null;
+        if (told) {
+          this.tellServerLink('recovered');
+          if (since !== null) this.keepServerDrop(since);
+        }
         return;
       }
       case 'failed':
         this.serverLinkDown.set(false);
         this.cancelServerDropNotice();
         this.serverDropTold = false;
+        this.serverDropSince = null;
         this.tellServerLink('failed');
     }
   }
@@ -301,6 +310,23 @@ export class NetworkEventHandlerService {
   private cancelServerDropNotice(): void {
     if (this.serverDropNotice !== null) clearTimeout(this.serverDropNotice);
     this.serverDropNotice = null;
+  }
+
+  /**
+   * Keeps a line of a drop of the link to the room server in the system tab, for this reader alone, once
+   * the link is back (tyoitashi): the word shown at the time goes away, and a reader looking back over the
+   * session can tell when their screen was out of the room. Only a drop long enough to be told is kept,
+   * so the quick ones the lamp alone shows leave the log as quiet as the screen.
+   */
+  private keepServerDrop(since: number): void {
+    if (this.overlayMode.active()) return;
+    const at = new Date(since);
+    const time = [at.getHours(), at.getMinutes(), at.getSeconds()].map((n) => String(n).padStart(2, '0')).join(':');
+    const seconds = Math.max(1, Math.round((Date.now() - since) / 1000));
+    this.chatMessageService.tellSelfSystemNotice(
+      'room',
+      encodeI18nMessage('feature.lobby.peerReconnect.serverDropKept', { time, seconds })
+    );
   }
 
   /** Shows the word of the link to the room server, which is this reader's own; a streaming screen shows none. */
