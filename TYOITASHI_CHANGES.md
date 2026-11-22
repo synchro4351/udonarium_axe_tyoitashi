@@ -2,7 +2,7 @@
 
 [紹介ページ](README.md) · [版ごとの履歴](TYOITASHI_VERSIONS.md)
 
-## 公式がそのままcherry-pickできる枝（r20〜r21）
+## 公式がそのままcherry-pickできる枝（r20〜r22）
 
 公式Axe v1.80.0（`5b8429b4`）だけを基点にした枝です。ファイル名やコメントに私家版の名前を入れず、公式にある仕組みだけで書いています。どれも単独で取り込めます。
 
@@ -14,6 +14,12 @@
 | [`codex/up-hotbar-offer`](https://github.com/synchro4351/udonarium_axe/tree/codex/up-hotbar-offer)                     | ホットバーの1ページをチャットでひな形として配り、各自が空きページに取り込む（ホットバーの右クリックからも配れる）。それを使うAIの道具`offer_hotbar` |
 | [`codex/up-agent-role-events`](https://github.com/synchro4351/udonarium_axe/tree/codex/up-agent-role-events)           | 席の役割が変わったら、AIに`seat_role_changed`で知らせる。手引きに「聞き直さずにその役割で動く」を足す                                               |
 | [`codex/up-agent-piece-disclosure`](https://github.com/synchro4351/udonarium_axe/tree/codex/up-agent-piece-disclosure) | `create_piece`の説明を正す（GMが置いたコマはシートだけGMに限り、コマ自体は見える）。`hidden`でステルスに置き、`set_piece_hidden`で隠す・見せる      |
+| [`codex/up-stamp-words`](https://github.com/synchro4351/udonarium_axe/tree/codex/up-stamp-words)                       | スタンプに読みや言いかえの検索語を持たせ、スタンプの選び方に検索欄を付ける                                                                          |
+| [`codex/up-image-shrink-to-fit`](https://github.com/synchro4351/udonarium_axe/tree/codex/up-image-shrink-to-fit)       | 上限を超える画像を、断る前に上限に収まるまで縮めて取り込む                                                                                          |
+| [`codex/up-card-back-text`](https://github.com/synchro4351/udonarium_axe/tree/codex/up-card-back-text)                 | カードの裏に書く文字。裏向きのときはそれを出し、カードの設定で書ける                                                                                |
+| [`codex/up-popout-drop`](https://github.com/synchro4351/udonarium_axe/tree/codex/up-popout-drop)                       | 別窓に出したパネルにもファイルをドロップできるようにする                                                                                            |
+| [`codex/up-discard-hand`](https://github.com/synchro4351/udonarium_axe/tree/codex/up-discard-hand)                     | 手札を全部捨てて卓に山にする（確認つき）                                                                                                            |
+| [`codex/up-agent-thinking`](https://github.com/synchro4351/udonarium_axe/tree/codex/up-agent-thinking)                 | AIが考えている・道具を使っているあいだ、パネルに表示し、チャットに「入力中」を出す                                                                  |
 | [`codex/up-windows-test-paths`](https://github.com/synchro4351/udonarium_axe/tree/codex/up-windows-test-paths)         | Windowsで落ちる公式の試験2つ（three-fence、bundled-models）のパスの読み方をそろえる。`codex/up-hotbar-offer`はこの上にあります                      |
 
 ちょいたしの仕組みに乗る枝は、私家版の本流を基点にしています：[`codex/tyo-agent-card-tools`](https://github.com/synchro4351/udonarium_axe/tree/codex/tyo-agent-card-tools)（キャラクターの手札を使うカードの道具）、[`codex/tyo-bridge-site`](https://github.com/synchro4351/udonarium_axe/tree/codex/tyo-bridge-site)（ちょいたし版ブリッジの配布）。
