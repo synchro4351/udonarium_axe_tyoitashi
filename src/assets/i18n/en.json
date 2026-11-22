@@ -4618,6 +4618,7 @@
         "serverRetrying": "Lost the connection to the room server. Reconnecting…",
         "serverRecovered": "Restored the connection to the room server.",
         "serverFailed": "Could not reconnect to the room server. Reconnect from the connection panel if it does not recover.",
+        "serverDropKept": "The connection to the room server was lost from {{time}} for {{seconds}} seconds (it is back now).",
         "serverLamp": "Reconnecting to the room server"
       },
       "invite": {
