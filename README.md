@@ -8,8 +8,8 @@
 
 ## バージョンとソース
 
-- **固定版：tyoitashi r22／Axe v1.82.0**：[ソース`a7067243`](https://github.com/synchro4351/udonarium_axe/tree/a706724399d980ba484e272a85f3d3952d292913)
-- **開発版：Axe v1.82.0対応**：[`codex/synwork-integration`](https://github.com/synchro4351/udonarium_axe/tree/codex/synwork-integration)
+- **固定版：tyoitashi r22／Axe v1.82.0**：[ソース`a7067243`](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/a706724399d980ba484e272a85f3d3952d292913)
+- **開発版：Axe v1.82.0対応**：[`codex/synwork-integration`](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/codex/synwork-integration)
 - [バージョン履歴](TYOITASHI_VERSIONS.md) · [変更内容と再利用用のコミット一覧](TYOITASHI_CHANGES.md)
 
 このリポジトリの既定ブランチは紹介ページです。試す場合は上の固定ソースまたは開発ソースを選び、公式の手順に沿ってビルドしてください。既定ブランチの「Download ZIP」や公式の配布ZIPは、ここに記載した私家版の完成品ではありません。
@@ -43,7 +43,7 @@
 
 私家版で先に作った機能のうち、公式Axeに同じものが入ったものは公式の実装へ移し、保存済みのデータは引き継いでいます。カットインのフォント選択と話者の画像・名前・立ち絵合わせ、画像スタンプとリアクション、頭上の吹き出し、文字だけのログ、手札の受け渡しと引き継ぎ、共有メモの整形、ルビ、画像の取り込み時の編集、招待リンクで入った見学者へのログインの案内、ラウンド数を省いたバフを残すことがこれにあたります。使い方は公式の説明をご覧ください。
 
-カード表面の文章機能は、公式Axe v1.48.0へ採用されました。[元の提案ブランチ](https://github.com/synchro4351/udonarium_axe/tree/feature/card-face-text)は参考資料として残しています。
+カード表面の文章機能は、公式Axe v1.48.0へ採用されました。[元の提案ブランチ](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/feature/card-face-text)は参考資料として残しています。
 
 ## 読み上げを足した理由
 

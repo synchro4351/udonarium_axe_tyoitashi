@@ -8,7 +8,7 @@
 
 ## tyoitashi r22／Axe v1.82.0（2026-11-22）
 
-- 固定ソースは[`a7067243`](https://github.com/synchro4351/udonarium_axe/tree/a706724399d980ba484e272a85f3d3952d292913)。私用・部屋のサーバー・試用の3サイトをこの版へ更新しました。
+- 固定ソースは[`a7067243`](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/a706724399d980ba484e272a85f3d3952d292913)。私用・部屋のサーバー・試用の3サイトをこの版へ更新しました。
 - 公式v1.81.0・v1.82.0を取り込みました。AI GMはAI連携のパネルの「GMを任せる」タブになり、AIは部屋のほとんどのもの（カード・チャットタブ・カットイン・地形・照明など）を同じやり方で扱えます。BGMを選んで流す、ファイルの取り込み、部屋の保存と読込、マップ生成も入ります。カードを触れる・表を読める・シートを開けるの判定は1か所にまとまり、ちょいたしの手札渡しやカード編集の許可はその上に載せ直しました。
 - r21を2人で確かめて出た小物：スタンプの検索欄、大きな画像を縮めて取り込む、カードの裏の文字、別窓へのドロップ、手札を全部捨てる、ドッキングした窓にほかの窓を重ねない、AIの道具の追加、AIの名前と顔（既定は席の名前）、AIの考え中の表示。
 - サブスクでAIにGMをさせる手順は、公式の「GMを任せる」タブとClaude Codeの`/mcp__axe__run_ai_gm`で始める形に変えました。
@@ -16,7 +16,7 @@
 
 ## tyoitashi r21／Axe v1.80.0（2026-11-19）
 
-- 固定ソースは[`336bc6eb`](https://github.com/synchro4351/udonarium_axe/tree/336bc6eb2318309c4de4287249837991fd9e3110)。私用・部屋のサーバー・試用の3サイトをこの版へ更新しました。
+- 固定ソースは[`336bc6eb`](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/336bc6eb2318309c4de4287249837991fd9e3110)。私用・部屋のサーバー・試用の3サイトをこの版へ更新しました。
 - r20を2人で確かめて見つかった、AIの道具の直しです。AIが送るスタンプとホットバーのひな形にAIの印を付け、席の役割が変わったらAIに知らせます。GMが置いたコマは公式どおりシートだけを隠すので、道具の説明を正し、ステルスで隠す・見せる道具を足しました。AIが置くメモは最初から公開です。
 - 付属のトランプは、新しく作る山札のカードの詳細に`s1`・`h13`・`joker`のような短い文字を持ち、AIはそれでカードを見分けます。部屋のサーバーは表の見えない人へカードの詳細を送らないので、表が見える人にしか届きません。
 - 全員の手札の一覧に出す人やキャラを、見る人ごとに選べます。外した人もカードを持っていれば薄く出ます。各欄に顔（参加者の画像、キャラの画像）を出します。
@@ -24,7 +24,7 @@
 
 ## tyoitashi r20／Axe v1.80.0（2026-11-18）
 
-- 固定ソースは[`399534c0`](https://github.com/synchro4351/udonarium_axe/tree/399534c0aa985b56b9098ecb2e7f6b6390a545ef)。試用サイトもこの版へ更新しました（r14から一気に進みました）。
+- 固定ソースは[`399534c0`](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/399534c0aa985b56b9098ecb2e7f6b6390a545ef)。試用サイトもこの版へ更新しました（r14から一気に進みました）。
 - 公式v1.73.0〜v1.80.0を取り込みました（r16〜r19）。シーン、シナリオテキスト、チャットの書式エディタ、接続パネルの作り直し、エフェクト集、バフとデバフ、物差し、立体射程、AI連携（MCP）とAI GMなどが入ります。
 - ちょいたし版のAIの道具：カードと手札、行動順・インベントリの並べ替え・アラーム・投票・スタンプ、テーブル・マップマスクの格子・メモ、ホットバーのひな形、回線が切れたままの人の知らせ。道具が公式より多いので、ブリッジ（`axe-mcp.mjs`）はAI連携のパネルのリンクからサイトのものを落とします。公式のブリッジとはつながりません。
 - ホットバーのひな形：1ページ分をチャットで配り、受け取った人が自分の空きページに取り込みます。人もホットバーの右クリックから配れます。
@@ -37,7 +37,7 @@
 
 ## tyoitashi r14／Axe v1.72.0（2026-11-02）
 
-- 固定ソースは[`c9799c47`](https://github.com/synchro4351/udonarium_axe/tree/c9799c47fdb7c1f76eccc3f2f7609309102f1815)。r15〜r19は私用サイトでの確認版で、試用サイトはr20までこの版でした。
+- 固定ソースは[`c9799c47`](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/c9799c47fdb7c1f76eccc3f2f7609309102f1815)。r15〜r19は私用サイトでの確認版で、試用サイトはr20までこの版でした。
 - キャラクターの手札：右クリックの「手札を持たせる」か、カードを渡されたキャラクターが手札を持ちます。プレイヤーの手札と同じ操作で配る・引く・渡す・出すことができ、表はそのキャラクターのオーナーとGMにだけ見えます。手札の帯にキャラクターごとのタブが並び、全員の手札の一覧にも出ます。部屋のサーバーでは、私家版のサーバー（backendの枝`character-hands`）が必要です。
 - 卓の上でAlt＋ドラッグすると、囲んだコマにまとめてターゲットを付けます。
 - リモコンの「外す」でバフを外し、チャットに残します。ラウンド数を省いたバフは外すまで残ります（`/永続`）。
@@ -46,44 +46,44 @@
 
 ## tyoitashi r13／Axe v1.72.0（2026-10-29）
 
-- 固定ソースは[`af9799a0`](https://github.com/synchro4351/udonarium_axe/tree/af9799a0f5761eb833d74d4ae12600d55ff50914)。試用サイトもこの版へ更新しました。
+- 固定ソースは[`af9799a0`](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/af9799a0f5761eb833d74d4ae12600d55ff50914)。試用サイトもこの版へ更新しました。
 - 新しい部屋の最初のカットインに、休憩の見本`Sample_Rest`を加えました。10分間、現在時刻と「再開まで あと mm:ss」を出し続けます。時刻の書き方（`{time}`・`{remaining:2}`）の見本も兼ねます。
 - 全体テスト19,501件成功・1件skip、production build成功。
 
 ## tyoitashi r12／Axe v1.72.0（2026-10-28）
 
-- 固定ソースは[`c33afff6`](https://github.com/synchro4351/udonarium_axe/tree/c33afff67e4add0af295c4737df5bd386ddd2dac)。試用サイトもこの版へ更新しました。
+- 固定ソースは[`c33afff6`](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/c33afff67e4add0af295c4737df5bd386ddd2dac)。試用サイトもこの版へ更新しました。
 - 公式v1.69.0〜v1.72.0の更新を取り込みました。チャットの装飾（太字・フォント・大きさ・色）、イニシアチブの編集と手番の保留、ステルス、数値リソースのスライダー、自分が追加した画像・音の削除、GMによる削除や運営への報告などが入ります。
 - 公式が部品を分けたところへ、私家版の追加を移し替えました。キャラクターの右クリックメニューの部位分割・グループのコピー・連結解除、メニューの引き出しの手札アイコンと更新の印、画像一覧の「確かめてから追加」などです。部屋のサーバーの再接続の延長（約10分）も新しい部品の上で続けています。
 - 全体テスト19,499件成功・1件skip、production build成功（初期バンドル3.20MB）。固定前に、実装していない別のエージェントによるレビューを行い、指摘3件（部位のコマでの横幅指定とステルスの半透明、スマホでの招待の案内文の欠け、消した画像を含むスタンプパック）を直しました。
 
 ## tyoitashi r11／Axe v1.68.0（2026-10-26）
 
-- 固定ソースは[`854af86d`](https://github.com/synchro4351/udonarium_axe/tree/854af86d5bd4b702bae99231e1104fb068d4b119)。試用サイトもこの版へ更新しました。
+- 固定ソースは[`854af86d`](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/854af86d5bd4b702bae99231e1104fb068d4b119)。試用サイトもこの版へ更新しました。
 - 部屋のサーバーとの接続が切れたとき、約30秒で諦めて部屋から出ていたのを、約10分のあいだ15秒ごとに入り直すようにしました。回線が戻ったときや画面に戻ったときは、待たずにすぐ入り直します。実卓で、通信の弱い参加者が2分半の断絶のあと戻れなかったことへの対策です。
 - ダイスボットを読み・ID・頭文字で探せるようにし、発言の読み上げボタンを返信などと同じツールバーと長押しメニューへ移しました。招待リンクでログインせずに入った見学者にはログインを案内します。射程の長さ・幅の変更がすぐ描き直されるようにし、バフの色選びはほかの場所を押すと閉じ、リモコンのバフ入力は斜線区切りも受け付けます。
 - 全体テスト18,367件成功・1件skip、production build成功。固定前に、実装していない別のエージェントによるレビューを行い、指摘3件（射程の表示が更新されなくなる不具合など）を直しました。
 
 ## tyoitashi r10／Axe v1.68.0（2026-10-24）
 
-- 固定ソースは[`d8d9c8d5`](https://github.com/synchro4351/udonarium_axe/tree/d8d9c8d51ec242f3e2d9de68b8712c85e696df08)。試用サイトもこの版へ更新しました。
+- 固定ソースは[`d8d9c8d5`](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/d8d9c8d51ec242f3e2d9de68b8712c85e696df08)。試用サイトもこの版へ更新しました。
 - カットインの時計の表示形式（`{time:hh:mm:ss}`・`{remaining:mm:ss}`・`{elapsed:ss.00}`など）、キャラクターのダブルクリックでシートを開く、menus.jsonのドロップ、ホットバーのマルチボタンの「その場の動作」を追加しました。部屋のサーバーでは、接続情報の画面にDiscordログインを置き、同じ部屋へつなぎ直したときに読み上げが止まる問題と、名前がIDで出る問題を直しました。
 - 全体テスト18,345件成功、型検査・lint・production buildも成功しました。
 
 ## tyoitashi r9／Axe v1.68.0（2026-10-22）
 
-- 固定ソースは[`cc1da563`](https://github.com/synchro4351/udonarium_axe/tree/cc1da5636a31a4596c3c5ff77c0635e16ea6ec9d)。
+- 固定ソースは[`cc1da563`](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/cc1da5636a31a4596c3c5ff77c0635e16ea6ec9d)。
 - キャラクターの画像効果（チャットのアイコンと立ち絵にも反映）、頭上に出すリソースの部屋設定、多部位の全体・部位を選んだ発言、カットインの文字の自由な入場・来た道を戻る退場・デコーダー、2D表示で他の参加者のマウス位置の印を寝かせる変更を追加しました。
 - 全体テスト18,333件成功・1件skip、型検査・lint・production buildも成功しました。
 
 ## tyoitashi r8／Axe v1.68.0（2026-10-21）
 
-- 固定ソースは[`2915100a`](https://github.com/synchro4351/udonarium_axe/tree/2915100a9a3589ae1ef623fde491d403448a3ccc)。公式v1.68.0までの更新を含みます。公式の遅延読み込みで、初期バンドルは3.49MBから3.10MBに減りました。
+- 固定ソースは[`2915100a`](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/2915100a9a3589ae1ef623fde491d403448a3ccc)。公式v1.68.0までの更新を含みます。公式の遅延読み込みで、初期バンドルは3.49MBから3.10MBに減りました。
 - 大きな画像の縮小共有、招待リンクのコピーの代替手段、カットインの`{time}`（現在時刻）と`{remaining}`（残り時間）を追加しました。特殊記法はスタンプ一覧のタブへ移し、ZIPを作る操作は「保存」、部屋に入れる操作は「登録」と書き分けました。大きさを変えたキャラクターのグリッド吸着、乗り物と多部位の同乗、カットインの文字順・退場、話者名ボタン、読み上げボタンも直しています。
 
 ## tyoitashi r7／Axe v1.67.0（2026-10-18）
 
-- 固定ソースは[`01ffa130`](https://github.com/synchro4351/udonarium_axe/tree/01ffa13046f32c140abfbdf6052db27da7546aa5)。公式v1.67.0までの更新を含みます。試用サイトもこの版へ更新しました。
+- 固定ソースは[`01ffa130`](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/01ffa13046f32c140abfbdf6052db27da7546aa5)。公式v1.67.0までの更新を含みます。試用サイトもこの版へ更新しました。
 - 統合時の全体テストは直接・Angular経由とも16,998件成功・1件skip。lint、production build、Chromium104件のうち関連の101件が成功しました。失敗した3件はr6でも同じ形で失敗する古い試験で、今回の変更による回帰ではありません。
 - 初期バンドルは私家版3.49MB（転送見込み約808kB）、無改造の公式v1.67.0は3.39MB（同約784kB）。いずれも3.50MBのエラー予算内ですが、私家版の余裕は約0.01MBです。
 
@@ -94,7 +94,7 @@
 
 ### 開発・検証の記録
 
-- [ソース0fb166d0](https://github.com/synchro4351/udonarium_axe/tree/0fb166d045f15863fa966ad0278692ba419abd9a)。公式v1.65.2まで追従し、公式にある機能を基礎に保存済みの私家版データを引き継ぎます。多部位の重なる範囲、選択後の移動・サイズ調整、部位へのエフェクト、名前・リソース・バフの配置を追加しました。
+- [ソース0fb166d0](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/0fb166d045f15863fa966ad0278692ba419abd9a)。公式v1.65.2まで追従し、公式にある機能を基礎に保存済みの私家版データを引き継ぎます。多部位の重なる範囲、選択後の移動・サイズ調整、部位へのエフェクト、名前・リソース・バフの配置を追加しました。
 - 統合時の全体テストは直接・Angular経由とも16,124件成功・1件skip。追加の画像修正は通常フック1,469件とAngular関連67件成功。Chromium19件とproduction buildも成功しています。初期バンドルの警告は私家版3.26MB、無改造公式版3.17MBで、いずれも3.50MBのエラー予算内です。
 - 変更の出所と依存関係は[コミット一覧](TYOITASHI_CHANGES.md)にまとめています。
 
@@ -108,94 +108,94 @@
 
 ## 開発版・連動する多部位 — 2026-10-04
 
-- [ソースf3cbe94d](https://github.com/synchro4351/udonarium_axe/tree/f3cbe94d)。既存キャラクターのデータを部位ごとに複製し、HP・バフを独立させ、位置・サイズ・向きを連動します。部位だけのコピー・単体読込では連動を外します。
+- [ソースf3cbe94d](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/f3cbe94d)。既存キャラクターのデータを部位ごとに複製し、HP・バフを独立させ、位置・サイズ・向きを連動します。部位だけのコピー・単体読込では連動を外します。
 - 多部位の機能枝で、全体VitestとAngular経由は各14,305件成功・1件skip。Chromiumで作成・部位のつかみ分け・連動ドラッグ・単体ZIPのリソースと同期属性を確認しました。別端末・部屋ZIP・実タッチ端末の目視確認はこれからです。
 - ZIP内の未知の拡張子の画像を認識する修正は別枝です。参照保持を含む関連73件が両テスト経路で成功し、通常フックは署名判定4,653件・参照保持4,569件成功。固定版・デモはr5のままです。
 
 ## 開発版・画像から部位コマ — 2026-10-02
 
-- [ソース70fbd8b1](https://github.com/synchro4351/udonarium_axe/tree/70fbd8b1)。選択範囲から通常のキャラクターを作ります。元画像を残し、HPと移動は各コマで独立します。
+- [ソース70fbd8b1](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/70fbd8b1)。選択範囲から通常のキャラクターを作ります。元画像を残し、HPと移動は各コマで独立します。
 - Angular経由の関連82件と修正後のサービス8件、通常コミットフック263ファイル4,530件、Chromium2件、型検査・lint・production build成功。ブラウザでは切り抜いた画像の透明部分と中央の画素も確認しました。別端末・保存ZIP・実タッチ端末での目視確認はこれからです。
 - 公開前の組み合わせ検証は全体1,007ファイル14,264件成功・1件skip、production build成功。固定版・デモはr5のままです。
 
 ## 開発版・半角で入力するルビ — 2026-10-02
 
-- [ソースcebe7468](https://github.com/synchro4351/udonarium_axe/tree/cebe7468)。新旧のルビ記法を共通処理で読み取り、表示・読み上げ・ログ・吹き出しとエフェクト判定を揃えました。
+- [ソースcebe7468](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/cebe7468)。新旧のルビ記法を共通処理で読み取り、表示・読み上げ・ログ・吹き出しとエフェクト判定を揃えました。
 - 関連テストは直接224件、Angular経由206件成功。Chromiumの2件、型検査・lint・production buildも成功。通常コミットフックは全体1,003ファイル14,247件成功・1件skip。実際の発声・別端末・保存した卓での目視確認はこれからです。
 - 固定版・デモはr5のままです。
 
 ## 開発版・XML属性の改行保持 — 2026-10-02
 
-- [ソースbe4b77f4](https://github.com/synchro4351/udonarium_axe/tree/be4b77f460a902aafbede0858b5edcdcd9141124)。文字単位の動きに加え、複製・保存で属性の改行とタブが空白へ変わる既存の問題を別コミットで修正しました。
+- [ソースbe4b77f4](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/be4b77f460a902aafbede0858b5edcdcd9141124)。文字単位の動きに加え、複製・保存で属性の改行とタブが空白へ変わる既存の問題を別コミットで修正しました。
 - 修正枝では関連132件、Angular経由80件、型検査・lint・production build成功。ChromiumのXML解析でも8種類の値の保持を確認。通常コミットフックは全体1,002ファイル14,185件成功・1件skip。別枝の検証数は本流との組み合わせの件数とは区別します。
 - 固定版・デモはr5のままです。新しい保存ZIPの目視確認はこれからです。
 
 ## 開発版・文字単位の動き — 2026-10-02
 
-- [ソース26b6eb5b](https://github.com/synchro4351/udonarium_axe/tree/26b6eb5b84ab713de02a2bf2e00903b8aa94d684)。文字レイヤーを分解せず、出現順・間隔・向き・退場を調整できます。詳細は折り畳み、保存・同期・取り消しに対応します。
+- [ソース26b6eb5b](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/26b6eb5b84ab713de02a2bf2e00903b8aa94d684)。文字レイヤーを分解せず、出現順・間隔・向き・退場を調整できます。詳細は折り畳み、保存・同期・取り消しに対応します。
 - 通常コミットフックで全体1,002ファイル・14,206件成功・1件skip。Angular経由の関連129件、型検査・lint・production build成功。新しいブラウザテストは3回成功し、既存のカットイン関連の確認結果も引き継ぎました。利用者の目視確認はこれからです。
 - 固定版・デモはr5のままです。
 
 ## 開発版・初期カットインと見本素材 — 2026-10-02
 
-- [ソース75b16b3a](https://github.com/synchro4351/udonarium_axe/tree/75b16b3a52adfe214953e9b995872b6d1096f18e)。公式Sample1・Sample2に簡単なSample_Templateを追加し、演出見本16個は必要に応じて追加する素材へ整理しました。既存のカットインを上書きしません。
+- [ソース75b16b3a](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/75b16b3a52adfe214953e9b995872b6d1096f18e)。公式Sample1・Sample2に簡単なSample_Templateを追加し、演出見本16個は必要に応じて追加する素材へ整理しました。既存のカットインを上書きしません。
 - コミット前の関連74ファイル・1,754件成功。Angular経由の関連検証と、ブラウザでの初期テンプレート・素材ZIPの取り込みを確認。型検査・lint・production build成功。利用者の目視確認はこれからです。
 - 固定版・デモはr5のままです。
 
 ## 開発版・カットイン詳細の折り畳み — 2026-10-02
 
-- [ソース34140927](https://github.com/synchro4351/udonarium_axe/tree/3414092749630e99a008273ab50a0b9f4ef0da14)。基本操作とレイヤー一覧を残して、時間軸・レイヤー詳細・表示の向きを折り畳みます。保存形式を変えず、開閉しても内容と選択を保ちます。
+- [ソース34140927](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/3414092749630e99a008273ab50a0b9f4ef0da14)。基本操作とレイヤー一覧を残して、時間軸・レイヤー詳細・表示の向きを折り畳みます。保存形式を変えず、開閉しても内容と選択を保ちます。
 - コミット前の関連22ファイル・720件成功、Angular経由152件成功、ブラウザの折り畳み・従来編集・再生8件成功。型検査・lint・production build成功。利用者の目視確認はこれからです。
 - 固定版・デモはr5のままです。
 
 ## 開発版・共有メモの整形 — 2026-10-02
 
-- [ソース17ba32be](https://github.com/synchro4351/udonarium_axe/tree/17ba32be9c22fad3ccc313553f74aa203ae91355)。通常／整形の選択と、見出し・箇条書き・引用・コードを追加しました。既存のメモ・チャットは変わりません。形式と本文は保存・同期されます。
+- [ソース17ba32be](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/17ba32be9c22fad3ccc313553f74aa203ae91355)。通常／整形の選択と、見出し・箇条書き・引用・コードを追加しました。既存のメモ・チャットは変わりません。形式と本文は保存・同期されます。
 - 全体テスト1,002ファイル・14,166件成功・1件skip。関連するAngular経由の検証、lint、production build、Chromiumでの表示切り替え・HTMLの文字表示も確認。別端末と実卓の目視はこれからです。
 - 固定版・試用サイトはr5のままです。開発版の追加を配備済みとは扱いません。
 
 ## 開発版／Axe v1.59.0 — 2026-10-02
 
-- 開発ソース：[f42e153b](https://github.com/synchro4351/udonarium_axe/tree/f42e153bff5d70f8f99d70e6a41d7fa82097a234)。固定版番号はまだ付けていません。デモの配備済みソースはr5のままです。
-- 私家版9ca3489aへ公式固定タグv1.59.0（19e9d1c7）を[統合](https://github.com/synchro4351/udonarium_axe/commit/fb24e752f58b78ce7c74e2026eb653a7f54ddc47)。公式スイッチ・コンパス・ボタン名ガイドなどを取り込み、[手札アイコンをガイドへ接続](https://github.com/synchro4351/udonarium_axe/commit/686765fee5c7c157926811c0d42c67b053f0ce90)しました。
+- 開発ソース：[f42e153b](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/f42e153bff5d70f8f99d70e6a41d7fa82097a234)。固定版番号はまだ付けていません。デモの配備済みソースはr5のままです。
+- 私家版9ca3489aへ公式固定タグv1.59.0（19e9d1c7）を[統合](https://github.com/synchro4351/udonarium_axe_tyoitashi/commit/fb24e752f58b78ce7c74e2026eb653a7f54ddc47)。公式スイッチ・コンパス・ボタン名ガイドなどを取り込み、[手札アイコンをガイドへ接続](https://github.com/synchro4351/udonarium_axe_tyoitashi/commit/686765fee5c7c157926811c0d42c67b053f0ce90)しました。
 - スイッチからのカットインはキャラクター画像を指定しないため、画像テンプレートではシルエットになります。スイッチの独自拡張は加えていません。
 - Angular経由の全体テストは1,000ファイル・14,098件成功・1件skip、全体lintとproduction buildは成功。Chromiumの関連40件は、古い期待値1件を現行の見学者メニューへ修正して確認済みです。利用者のローカル目視確認はこれからです。
 
 ## 開発版／Axe v1.58.0 — 2026-09-30
 
-- 開発ソース：[b12d2400](https://github.com/synchro4351/udonarium_axe/tree/b12d240072044f952ee27b815734fb80b622de43)（2026-10-01更新）。固定版番号はまだ付けていません。個人版・デモ版の配備済みソースはr5のままです。
-- [公式v1.58.0](https://github.com/Xelltis/udonarium_axe/releases/tag/v1.58.0)を[私家版へ統合](https://github.com/synchro4351/udonarium_axe/commit/d8b27baa1b80b1fccc0703f2bf903a9d12caedd1)し、メニューに私家版の入口と手札更新印を移しました。[初期ホットバー見本](https://github.com/synchro4351/udonarium_axe/commit/18043e6d3f4050dc7b3fdfa1f9730b94bf0b5f58)は新規利用者だけに表示します。
+- 開発ソース：[b12d2400](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/b12d240072044f952ee27b815734fb80b622de43)（2026-10-01更新）。固定版番号はまだ付けていません。個人版・デモ版の配備済みソースはr5のままです。
+- [公式v1.58.0](https://github.com/Xelltis/udonarium_axe/releases/tag/v1.58.0)を[私家版へ統合](https://github.com/synchro4351/udonarium_axe_tyoitashi/commit/d8b27baa1b80b1fccc0703f2bf903a9d12caedd1)し、メニューに私家版の入口と手札更新印を移しました。[初期ホットバー見本](https://github.com/synchro4351/udonarium_axe_tyoitashi/commit/18043e6d3f4050dc7b3fdfa1f9730b94bf0b5f58)は新規利用者だけに表示します。
 - 統合時に直接Vitest 13,854件、Angular経由 13,854件成功・1件skip。見本追加後は両経路 13,866件成功・1件skip、lint・ビルド成功。利用者の目視確認はこれからです。
-- [見本の用途を分散する修正](https://github.com/synchro4351/udonarium_axe/commit/b12d240072044f952ee27b815734fb80b622de43)で、ダイス入力・シート開閉・コマへの視点移動を試せるようにしました。既に旧見本を受け取ったバーは自動変更しません。キャラクター未選択時の案内も実際の発言者・「誰として」指定に合わせています。ホットバー20ファイル・234件は両経路成功、関連47ファイル・1,266件のコミットフックも成功。
+- [見本の用途を分散する修正](https://github.com/synchro4351/udonarium_axe_tyoitashi/commit/b12d240072044f952ee27b815734fb80b622de43)で、ダイス入力・シート開閉・コマへの視点移動を試せるようにしました。既に旧見本を受け取ったバーは自動変更しません。キャラクター未選択時の案内も実際の発言者・「誰として」指定に合わせています。ホットバー20ファイル・234件は両経路成功、関連47ファイル・1,266件のコミットフックも成功。
 
 ## tyoitashi r5／Axe v1.57.1 — 2026-09-29
 
-- 固定ソース：[7033c85e](https://github.com/synchro4351/udonarium_axe/tree/7033c85eed2cacd9c7ea44689e11ef9686b781f8)
+- 固定ソース：[7033c85e](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/7033c85eed2cacd9c7ea44689e11ef9686b781f8)
 - r4を基点に、クリップボード画像の登録と簡易背景透過、画像・文字を素材にできる反応エフェクト、キャラクター画像のカットインテンプレート、立ち絵ごとの直感的な位置合わせ、発動者名の文字差し込みと「参戦！」見本を追加しました。頭・肩の輪郭は最初のテンプレートです。
 - 立ち絵合わせの旧ローカル試験形式は廃止し、現在の倍率・絶対位置だけを保存します。旧試験データは既定の位置で表示されます。その他の保存済みカットインは変更しません。
 - 利用者は位置合わせの縮小時ドラッグ、枠外への移動、画像の端、簡潔なUIをローカル版で目視確認済みです。整理後の全体955ファイル／13,299件成功・1件skip、production build成功。個人版・デモ版へ同じ固定成果物を配備し、HTTPS・バックエンド応答を確認済みです。弱回線の実卓試験と配備後の利用者目視は後日です。
-- [r4からの差分](https://github.com/synchro4351/udonarium_axe/compare/a2999013624afe5ce18ed1ed4b46c4c17180758f...7033c85eed2cacd9c7ea44689e11ef9686b781f8)
+- [r4からの差分](https://github.com/synchro4351/udonarium_axe_tyoitashi/compare/a2999013624afe5ce18ed1ed4b46c4c17180758f...7033c85eed2cacd9c7ea44689e11ef9686b781f8)
 
 ## tyoitashi r4／Axe v1.57.1 — 2026-09-27
 
-- 固定ソース：[a2999013](https://github.com/synchro4351/udonarium_axe/tree/a2999013624afe5ce18ed1ed4b46c4c17180758f)
+- 固定ソース：[a2999013](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/a2999013624afe5ce18ed1ed4b46c4c17180758f)
 - r3を基点に、発言ごとの絵文字リアクション、文字だけのチャットログ、画像スタンプ、任意のキャラクター頭上吹き出しを追加しました。ブラウザのタイトルに`tyoitashi`を表示します。
 - チャットタブ設定からも`.txt`を保存でき、頭上吹き出しをHPバー・バフの手前へ表示します。スタンプのセット・検索語は保存ZIPと参加者間で共有されます。リアクションと吹き出しには公開範囲の制御があります。
 - 利用者はスタンプの登録・保存・読み込み・送信、絵文字とチャット候補、吹き出し、文字ログを目視確認済みです。最終位置の吹き出しと駒のドラッグもローカル版で確認済み。全体947ファイル／13,084件成功・1件skip、production build成功。弱回線・実2端末の動作確認は後日まとめて行います。
-- [r3からの差分](https://github.com/synchro4351/udonarium_axe/compare/cf5edecf309aa245d974737fc8b5486e6131faac...a2999013624afe5ce18ed1ed4b46c4c17180758f)
+- [r3からの差分](https://github.com/synchro4351/udonarium_axe_tyoitashi/compare/cf5edecf309aa245d974737fc8b5486e6131faac...a2999013624afe5ce18ed1ed4b46c4c17180758f)
 
 ## tyoitashi r3／Axe v1.57.1 — 2026-09-26
 
 発言ごとの絵文字リアクション、チャットログの`.txt`保存、画像スタンプは次のr4に収録しました。
 
-- 固定ソース：[cf5edecf](https://github.com/synchro4351/udonarium_axe/tree/cf5edecf309aa245d974737fc8b5486e6131faac)
+- 固定ソース：[cf5edecf](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/cf5edecf309aa245d974737fc8b5486e6131faac)
 - r2を基点に、GMによる不在手札の引継ぎと自分の手札カードのホバー詳細を追加しました。新しい保存・同期項目はありません。
 - 全体929ファイル／12,712件成功・1件skip、production build成功。手札ホバー詳細は利用者が目視確認しました。最新の保存・再読込ではカード複製は見られませんでしたが、以前に報告された既存卓へZIPを重ねて読み込む条件は再確認が必要です。弱回線試験も後日実施します。
-- [r2からの差分](https://github.com/synchro4351/udonarium_axe/compare/6e5668dd5b71ce7071be8dcbd9dd120da25aa7b1...cf5edecf309aa245d974737fc8b5486e6131faac)
+- [r2からの差分](https://github.com/synchro4351/udonarium_axe_tyoitashi/compare/6e5668dd5b71ce7071be8dcbd9dd120da25aa7b1...cf5edecf309aa245d974737fc8b5486e6131faac)
 
 ## tyoitashi r2／Axe v1.57.1 — 2026-09-26
 
-- 固定ソース：[6e5668dd](https://github.com/synchro4351/udonarium_axe/tree/6e5668dd5b71ce7071be8dcbd9dd120da25aa7b1)
+- 固定ソース：[6e5668dd](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/6e5668dd5b71ce7071be8dcbd9dd120da25aa7b1)
 - 公式基準：[Axe v1.57.1 / 85c89f98](https://github.com/Xelltis/udonarium_axe/commit/85c89f98ec11f2a82cb0b7bcbcf54351496d4457)
 - YouTubeカットイン開始時に自動再生を要求します。ブラウザの制限下では手動操作が必要です。
 - ホットバーのエフェクト選択に図形アイコンと名称を併記しました。
@@ -204,19 +204,19 @@
 - 公開設定は参加者情報で同期し、ルームセーブには含めません。渡し主ID・名前はカードの保存・同期項目として追加。ソート設定はブラウザ内に保存し、共有handOrderは自動ソートで変更しません。渡し主情報が捨て札・山札へ残る消去漏れも修正済みです。
 - 公開前の確認と公開状態表示、公開手札の一覧、カードのドロップ位置を決めてから表裏を選ぶ操作、山札の枚数・厚さ表示更新を追加しました。手札の初回表示と更新通知、部屋単位の公開方式、カード編集権限、場・山札からの受け渡しも含みます。
 - ユーザーは2026-09-26に手札一覧から引く操作とカットイン見本の調整まで目視確認済みです。低い「Level UP」と手札アイコンもユーザーが目視確認済みです。全体927ファイル／12,680件成功・1件skip、production build成功。手札の通常のセーブ・ロードと同じタブでの再接続はユーザーが確認済みですが、既存卓への保存ZIP再読込ではカードの複製が報告されています。弱回線での実動作と山札の通信遅延そのものの解消は未確認です。
-- [r1からの差分](https://github.com/synchro4351/udonarium_axe/compare/be1fdb8a81037efab6300ad49260023552e87739...6e5668dd5b71ce7071be8dcbd9dd120da25aa7b1)
+- [r1からの差分](https://github.com/synchro4351/udonarium_axe_tyoitashi/compare/be1fdb8a81037efab6300ad49260023552e87739...6e5668dd5b71ce7071be8dcbd9dd120da25aa7b1)
 
 ## tyoitashi r1／Axe v1.57.1 — 2026-09-24
 
 既存の固定ソースに初めて識別名を付けたものです。
 
-- 固定ソース：[be1fdb8a](https://github.com/synchro4351/udonarium_axe/tree/be1fdb8a81037efab6300ad49260023552e87739)
+- 固定ソース：[be1fdb8a](https://github.com/synchro4351/udonarium_axe_tyoitashi/tree/be1fdb8a81037efab6300ad49260023552e87739)
 - 公式基準：[Axe v1.57.1 / 85c89f98](https://github.com/Xelltis/udonarium_axe/commit/85c89f98ec11f2a82cb0b7bcbcf54351496d4457)
 - チャット読み上げ、カードの縁取り、マップマスクの文章・縁取り・白い既定文字色、再参加待機を含みます。
 - 今回追加した内容：カットインのフォント選択、YouTube再生操作の修正、チャット入力後の初回ドラッグ修正。
 - 確認：関連92件を直接Vitest・Angular経由で成功、初回ドラッグを3ブラウザで計6件成功、全体12,520件成功・1件skip、production build成功。
 - 実卓採用試験はユーザーより完了報告あり。個別機能、とくに実YouTube再生の目視完了を意味するものではありません。
-- [公式基準からの全差分](https://github.com/synchro4351/udonarium_axe/compare/85c89f98ec11f2a82cb0b7bcbcf54351496d4457...be1fdb8a81037efab6300ad49260023552e87739)
+- [公式基準からの全差分](https://github.com/synchro4351/udonarium_axe_tyoitashi/compare/85c89f98ec11f2a82cb0b7bcbcf54351496d4457...be1fdb8a81037efab6300ad49260023552e87739)
 
 ## 番号導入前
 

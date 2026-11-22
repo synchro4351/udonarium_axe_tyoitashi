@@ -108,7 +108,7 @@ Udonarium Axe tyoitashiは、オンライン卓ツールUdonarium Axeの基本�
 
 公式のAI連携（MCP）とAI GMに、ちょいたし版の道具を足しました。「今のイニシアチブロールを行動順に反映して」「左上の10×10をマップマスクで覆って」「山札を切って2枚ずつ配って」のように頼めます。アラーム、投票、スタンプ、テーブルやメモ作り、ホットバーのひな形もAIに頼めます。回線が切れたままの人がいると、AIは場面を止めて待ちます。
 
-道具が公式より多いので、ブリッジ（`axe-mcp.mjs`）はAI連携のパネルのリンクから、このサイトのものを落とします。Claude CodeをPro・Maxのサブスクで使えば、APIのキーなしでも動かせます（[手順](https://github.com/synchro4351/udonarium_axe/blob/codex/synwork-integration/docs/TYOITASHI_AI_GM_SUBSCRIPTION.md)）。AIは読んだ部屋の内容をAIの提供元に送るので、参加者に知らせてから使ってください。
+道具が公式より多いので、ブリッジ（`axe-mcp.mjs`）はAI連携のパネルのリンクから、このサイトのものを落とします。Claude CodeをPro・Maxのサブスクで使えば、APIのキーなしでも動かせます（[手順](https://github.com/synchro4351/udonarium_axe_tyoitashi/blob/codex/synwork-integration/docs/TYOITASHI_AI_GM_SUBSCRIPTION.md)）。AIは読んだ部屋の内容をAIの提供元に送るので、参加者に知らせてから使ってください。
 
 ## ホットバーを配る
 
@@ -152,4 +152,4 @@ Udonarium Axe tyoitashiは、オンライン卓ツールUdonarium Axeの基本�
 
 ## 素材と利用条件
 
-画面写真は動きを止めたものです。ソースと同梱素材の条件は、リポジトリの[LICENSE](https://github.com/synchro4351/udonarium_axe/blob/main/LICENSE)を見てください。くわしい確認結果は[開発者向け資料](DEVELOPER_REFERENCE.md)にあります。
+画面写真は動きを止めたものです。ソースと同梱素材の条件は、リポジトリの[LICENSE](https://github.com/synchro4351/udonarium_axe_tyoitashi/blob/main/LICENSE)を見てください。くわしい確認結果は[開発者向け資料](DEVELOPER_REFERENCE.md)にあります。
