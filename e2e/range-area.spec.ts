@@ -2,6 +2,14 @@ import { expect, Page, test } from '@playwright/test';
 
 import { openTableContextMenu, revealMenuEntry, waitAppReady } from './helpers';
 
+async function createCircleRange(page: Page) {
+  const menu = await openTableContextMenu(page);
+  await (await revealMenuEntry(page, menu, '射程範囲を作成')).hover();
+  await expect(menu.getByText('円形', { exact: true })).toBeVisible({ timeout: 5000 });
+  await menu.getByText('円形', { exact: true }).click();
+  await expect(page.locator('range').first()).toBeAttached({ timeout: 10000 });
+}
+
 async function createSquareRange(page: Page, as: 'ダイヤとして出力' | '四角形として出力') {
   const menu = await openTableContextMenu(page);
   await (await revealMenuEntry(page, menu, '射程範囲を作成')).hover();
@@ -64,15 +72,12 @@ test('lands a range with no caster on a cell or on a crossing, by where it is dr
   await waitAppReady(page);
   await createCircleRange(page);
   const range = page.locator('range').first();
+  // Where the range stands on the table, as it writes it down.
   const positionX = async () =>
-    range
-      .locator('[appmovable]')
-      .first()
-      .evaluate((el) => {
-        const match = /translate(?:3d)?\(\s*(-?[\d.]+)px/.exec((el as HTMLElement).style.transform);
-        return match ? Number(match[1]) : NaN;
-      });
+    Number((await range.locator('[data-location]').first().getAttribute('data-location'))!.split(',')[0]);
   const handle = range.locator('.pointer-events-auto').first();
+  // Over a table drawn on a canvas the handle is put once the canvas draws the range.
+  await expect.poll(async () => (await handle.boundingBox())?.width ?? 0, { timeout: 10000 }).toBeGreaterThan(0);
   const seen = new Set<number>();
   const landed: number[] = [];
   for (const distance of [10, 20, 30, 40, 50, 60]) {

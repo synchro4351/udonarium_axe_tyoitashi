@@ -83,8 +83,9 @@ test('map mask text preserves styling and legacy masks stay unlabeled', async ({
   await expect(renderedText).toHaveCSS('color', 'rgb(0, 170, 255)');
   await expect(renderedText).toHaveCSS('font-weight', '700');
   const shadow = await renderedText.evaluate((element) => getComputedStyle(element).textShadow);
-  // The outline is drawn as a shadow round the words, however many it is made of.
-  expect(shadow).not.toBe('none');
+  // The outline is a halo of shadows round the words, every one of them in the colour chosen.
+  expect(shadow).toContain('rgb(255, 0, 170)');
+  expect(shadow).not.toContain('rgb(0, 0, 0)');
   await expect(renderedText).toHaveCSS('-webkit-text-stroke-width', '0px');
   expect(await textRects()).toEqual(unoutlinedRects);
   await outlineToggle.uncheck();

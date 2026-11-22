@@ -137,7 +137,7 @@ test.describe('what shows above a piece', () => {
     const sheet = await openSheet(page);
     await sheet.locator('button[title="編集"]').first().dispatchEvent('click');
     const row = resourceRows(sheet, page).first();
-    await row.locator('button[title="詳細設定"]').first().dispatchEvent('click');
+    await row.locator('button[aria-label="詳細設定"]').first().dispatchEvent('click');
     const gaugeToggle = row.locator('input[name="data-piece-gauge"]');
     await gaugeToggle.uncheck();
     await expect(gauges).toHaveCount(1, { timeout: 5000 });
