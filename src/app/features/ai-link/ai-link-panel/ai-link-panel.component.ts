@@ -9,7 +9,7 @@ import { AGENT_BRIDGE_PORT, AGENT_TRUSTED_ORIGINS, type AgentScope } from '@axe/
 import { agentToolOf } from '@axe/core/agent/agent-tools';
 import { canRoleEdit } from '@axe/domain/peer/peer-role';
 import { AiLinkService } from '@axe/features/ai-link/ai-link.service';
-import { aiLinkBridgeUrl, SUBSCRIPTION_GUIDE_URL } from '@axe/features/ai-link/ai-link-releases';
+import { aiLinkBridgeUrl, aiLinkExtensionUrl, SUBSCRIPTION_GUIDE_URL } from '@axe/features/ai-link/ai-link-releases';
 import { AiGmPanelComponent } from '@axe/features/ai-link/gm/ai-gm-panel/ai-gm-panel.component';
 import { FileSelecterComponent } from '@axe/ui/components/file-selecter/file-selecter.component';
 import { SafePipe } from '@axe/ui/pipes/safe.pipe';
@@ -75,6 +75,8 @@ export class AiLinkPanelComponent {
   /** The half of the panel shown. */
   protected readonly tab = this.view.tab;
   protected readonly releasesUrl = aiLinkBridgeUrl();
+  /** The bridge packed as a Claude Desktop extension, installed with a double click (tyoitashi). */
+  protected readonly extensionUrl = aiLinkExtensionUrl();
   /** Which command was copied last, to say so beside it. */
   protected readonly copied = signal<'code' | 'desktop' | null>(null);
 

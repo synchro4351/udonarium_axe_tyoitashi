@@ -169,4 +169,12 @@ describe('AiLinkPanelComponent', () => {
     });
     expect(text(host, 'ai-link-origin-note')).toContain(origin);
   });
+
+  it('offers the bridge packed as a Claude Desktop extension, from this very site', async () => {
+    const host = await panel();
+    const link = host.querySelector<HTMLAnchorElement>('[data-testid="ai-link-desktop-extension"] a')!;
+
+    expect(link.getAttribute('href')).toBe(new URL('assets/axe-mcp/axe-mcp.mcpb', document.baseURI).href);
+    expect(link.getAttribute('download')).toBe('axe-mcp.mcpb');
+  });
 });

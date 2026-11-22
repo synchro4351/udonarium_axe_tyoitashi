@@ -11,6 +11,14 @@ export const TYOITASHI_BRIDGE_PATH = 'assets/axe-mcp/axe-mcp.mjs';
 export const SUBSCRIPTION_GUIDE_URL =
   'https://github.com/synchro4351/udonarium_axe_tyoitashi/blob/codex/synwork-integration/docs/TYOITASHI_AI_GM_SUBSCRIPTION.md';
 
+/** Where tyoitashi's bridge packed as a Claude Desktop extension is put next to the page (tyoitashi). */
+export const TYOITASHI_EXTENSION_PATH = 'assets/axe-mcp/axe-mcp.mcpb';
+
+/** The address of tyoitashi's bridge as a Claude Desktop extension, on the site the page is served from. */
+export function aiLinkExtensionUrl(): string {
+  return new URL(TYOITASHI_EXTENSION_PATH, document.baseURI).href;
+}
+
 /** The address of tyoitashi's bridge on the site the page is served from. */
 export function aiLinkBridgeUrl(): string {
   return new URL(TYOITASHI_BRIDGE_PATH, document.baseURI).href;
