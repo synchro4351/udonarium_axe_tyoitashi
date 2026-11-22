@@ -9,7 +9,7 @@ import { openPanel, waitAppReady } from './helpers';
 async function makeClockCutIn(page: Page): Promise<Locator> {
   await waitAppReady(page);
   await openPanel(page, 'カットイン');
-  const list = page.locator('app-cut-in-list');
+  const list = page.locator('cut-in-list');
   await expect(list).toBeVisible({ timeout: 10000 });
   await list.locator('button[title="新しいカットインを作る"]').click();
   await expect(list.locator('cut-in-editor')).toBeVisible({ timeout: 5000 });
@@ -31,7 +31,7 @@ async function makeClockCutIn(page: Page): Promise<Locator> {
 }
 
 function stageOf(page: Page): Locator {
-  return page.locator('app-cut-in-window app-cut-in-stage');
+  return page.locator('cut-in-window cut-in-stage');
 }
 
 test.describe('a cut-in that tells the time', () => {
@@ -60,7 +60,7 @@ test.describe('a cut-in that tells the time', () => {
 test('counts the seconds since the cut-in came on, padded to the digits asked for', async ({ page }) => {
   await waitAppReady(page);
   await openPanel(page, 'カットイン');
-  const list = page.locator('app-cut-in-list');
+  const list = page.locator('cut-in-list');
   await expect(list).toBeVisible({ timeout: 10000 });
   await list.locator('button[title="新しいカットインを作る"]').click();
   await list.getByRole('tab', { name: 'シーン' }).click();

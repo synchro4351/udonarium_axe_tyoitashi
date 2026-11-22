@@ -9,7 +9,7 @@ async function becomeGm(page: Page) {
     .filter({ hasText: '接続情報' })
     .getByRole('button', { name: /^\s*GM\s*$/ })
     .click();
-  await expect(page.locator('app-gm-toolbar [title^="暗闇"]')).toBeVisible({ timeout: 10000 });
+  await expect(page.locator('gm-toolbar [title^="暗闇"]')).toBeVisible({ timeout: 10000 });
 }
 
 async function createBlankCard(page: Page) {
@@ -157,5 +157,5 @@ test('card face text renders shared formatted markup, keeps raw text, and hides 
   await expect(menu.locator('li').first()).toBeVisible({ timeout: 5000 });
   await menu.getByText('裏にする', { exact: true }).click();
   await expect(page.locator('card-face-text span')).toHaveCount(0);
-  await expect(page.locator('card-face-text').first()).not.toContainText('Title');
+  await expect(page.locator('card-face-text', { hasText: 'Title' })).toHaveCount(0);
 });

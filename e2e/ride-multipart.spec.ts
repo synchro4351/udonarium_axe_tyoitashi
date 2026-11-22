@@ -9,7 +9,7 @@ async function becomeGm(page: Page) {
     .filter({ hasText: '接続情報' })
     .getByRole('button', { name: /^\s*GM\s*$/ })
     .click();
-  await expect(page.locator('app-gm-toolbar button').first()).toBeVisible({ timeout: 10000 });
+  await expect(page.locator('gm-toolbar button').first()).toBeVisible({ timeout: 10000 });
 }
 
 async function closePanels(page: Page) {
@@ -105,7 +105,9 @@ async function splitMonster(page: Page) {
   await expect(panel).toHaveCount(0);
 }
 
-test('carries a rider with a linked part used as a mount, whichever part is dragged, without moving it twice', async ({
+// Frozen with the parts cut from one picture (plan 3-66): the table draws pieces itself now, and a
+// split character is no longer shown as parts to press. Kept to come back to if the parts are rebuilt.
+test.skip('carries a rider with a linked part used as a mount, whichever part is dragged, without moving it twice', async ({
   page,
 }) => {
   await waitAppReady(page);

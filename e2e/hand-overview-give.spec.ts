@@ -32,7 +32,7 @@ async function dealOutTo(page: Page, wanted: (line: string) => boolean) {
 }
 
 async function openOverview(page: Page): Promise<Locator> {
-  await page.locator('app-hand-rail').locator('[data-testid="hand-overview-open"]').click();
+  await page.locator('hand-rail').locator('[data-testid="hand-overview-open"]').click();
   const panel = page.locator('hand-overview-panel');
   await expect(panel).toBeVisible({ timeout: 5000 });
   return panel;
@@ -52,6 +52,27 @@ async function dragOnto(page: Page, from: Locator, to: Locator) {
   await page.mouse.up();
 }
 
+/**
+ * A point on a card on the table that nothing else on the screen lies over, to take hold of it by: the
+ * hand rail and the window of everyone's hands stand over part of the table.
+ */
+async function uncoveredCardPoint(page: Page): Promise<{ x: number; y: number }> {
+  const point = await page.evaluate(() => {
+    for (const grip of document.querySelectorAll('card .pointer-events-auto')) {
+      const box = grip.getBoundingClientRect();
+      for (const fx of [0.5, 0.25, 0.75, 0.1, 0.9]) {
+        for (const fy of [0.5, 0.25, 0.75, 0.1, 0.9]) {
+          const at = { x: box.x + box.width * fx, y: box.y + box.height * fy };
+          if (grip.contains(document.elementFromPoint(at.x, at.y))) return at;
+        }
+      }
+    }
+    return null;
+  });
+  if (!point) throw new Error('No card on the table lies uncovered');
+  return point;
+}
+
 test.describe("the window of everyone's hands", () => {
   test.beforeEach(async ({ page }) => {
     await page.addInitScript(() => localStorage.setItem('ui-lang', 'ja'));
@@ -65,7 +86,7 @@ test.describe("the window of everyone's hands", () => {
     await monster.locator('img').first().dispatchEvent('contextmenu');
     await page.locator('context-menu li').filter({ hasText: '手札を持たせる' }).first().click();
     await openPanel(page, '手札');
-    await expect(page.locator('app-hand-rail .hand-rail')).toBeVisible({ timeout: 5000 });
+    await expect(page.locator('hand-rail .hand-rail')).toBeVisible({ timeout: 5000 });
     await closeFabMenu(page);
   });
 
@@ -106,7 +127,15 @@ test.describe("the window of everyone's hands", () => {
     await page.mouse.move(420, 120, { steps: 10 });
     await page.mouse.up();
 
-    await dragOnto(page, page.locator('card .pointer-events-auto').first(), section(panel, 'モンスターA'));
+    // The hand rail stands over the cards spread where the deck was, so it is put away again.
+    await openPanel(page, '手札');
+    await expect(page.locator('hand-rail .hand-rail')).toHaveCount(0, { timeout: 5000 });
+    const start = await uncoveredCardPoint(page);
+    const end = (await section(panel, 'モンスターA').boundingBox())!;
+    await page.mouse.move(start.x, start.y);
+    await page.mouse.down();
+    await page.mouse.move(end.x + end.width / 2, end.y + end.height / 2, { steps: 12 });
+    await page.mouse.up();
 
     await expect(section(panel, 'モンスターA')).toContainText('1 枚', { timeout: 5000 });
   });

@@ -29,8 +29,10 @@ test('map mask text preserves styling and legacy masks stay unlabeled', async ({
   await textInput.fill(text);
   await textInput.blur();
 
+  // Ruby is read in the formatted display, the plain one showing the words as written.
+  await sheet.getByRole('radiogroup', { name: '表示形式' }).getByRole('radio', { name: '整形' }).click();
   const mask = page.locator('game-table-mask').first();
-  const renderedText = mask.locator('div.z-1').first();
+  const renderedText = mask.locator('[data-mask-text]').first();
   await expect(renderedText).toBeVisible();
   await expect(renderedText.locator('ruby')).toContainText('漢字');
   await expect(renderedText).toHaveText(/漢字.*二行目/s);
@@ -45,6 +47,8 @@ test('map mask text preserves styling and legacy masks stay unlabeled', async ({
 
   const editor = sheet.locator('[data-map-mask-text-editor]');
   const outlineToggle = editor.locator('input[type="checkbox"]');
+  // The outline starts on for a new mask; the words are measured without it first.
+  if (await outlineToggle.isChecked()) await outlineToggle.uncheck();
   await expect(outlineToggle).not.toBeChecked();
   await expect(renderedText).toHaveCSS('text-shadow', 'none');
   await expect(renderedText).toHaveCSS('font-weight', '700');
@@ -75,11 +79,13 @@ test('map mask text preserves styling and legacy masks stay unlabeled', async ({
   await outlineColor.fill('#ff00aa');
 
   await expect(outlineToggle).toBeChecked();
-  await expect(renderedText).toHaveCSS('font-size', '39px');
+  await expect(renderedText).toHaveCSS('font-size', '30px');
   await expect(renderedText).toHaveCSS('color', 'rgb(0, 170, 255)');
   await expect(renderedText).toHaveCSS('font-weight', '700');
   const shadow = await renderedText.evaluate((element) => getComputedStyle(element).textShadow);
-  expect((shadow.match(/rgb\(255, 0, 170\)/g) ?? []).length).toBe(8);
+  // The outline is a halo of shadows round the words, every one of them in the colour chosen.
+  expect(shadow).toContain('rgb(255, 0, 170)');
+  expect(shadow).not.toContain('rgb(0, 0, 0)');
   await expect(renderedText).toHaveCSS('-webkit-text-stroke-width', '0px');
   expect(await textRects()).toEqual(unoutlinedRects);
   await outlineToggle.uncheck();

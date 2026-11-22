@@ -5,7 +5,7 @@ import { openPanel, waitAppReady } from './helpers';
 test('brings each letter of a cut-in in from a pose of the layer’s own, blurred and turned', async ({ page }) => {
   await waitAppReady(page);
   await openPanel(page, 'カットイン');
-  const list = page.locator('app-cut-in-list');
+  const list = page.locator('cut-in-list');
   await expect(list).toBeVisible({ timeout: 10000 });
   await list.locator('button[title="新しいカットインを作る"]').click();
   await expect(list.locator('cut-in-editor')).toBeVisible({ timeout: 5000 });
@@ -29,7 +29,7 @@ test('brings each letter of a cut-in in from a pose of the layer’s own, blurre
   await list.getByRole('tab', { name: '基本設定' }).click();
   await list.locator('cut-in-editor button[title="自分だけ再生"]').click();
 
-  const letter = page.locator('app-cut-in-window app-cut-in-stage [data-letter-rank="0"]');
+  const letter = page.locator('cut-in-window cut-in-stage [data-letter-rank="0"]');
   await expect(letter).toBeAttached({ timeout: 5000 });
   const first = await letter.evaluate((element) => {
     const [animation] = element.getAnimations();
@@ -47,7 +47,7 @@ test('brings each letter of a cut-in in from a pose of the layer’s own, blurre
 test('runs each letter of a cut-in through stray letters before it settles, as a decoder does', async ({ page }) => {
   await waitAppReady(page);
   await openPanel(page, 'カットイン');
-  const list = page.locator('app-cut-in-list');
+  const list = page.locator('cut-in-list');
   await expect(list).toBeVisible({ timeout: 10000 });
   await list.locator('button[title="新しいカットインを作る"]').click();
   await list.getByRole('tab', { name: 'シーン' }).click();
@@ -61,7 +61,7 @@ test('runs each letter of a cut-in through stray letters before it settles, as a
   await list.getByRole('tab', { name: '基本設定' }).click();
   await list.locator('cut-in-editor button[title="自分だけ再生"]').click();
 
-  const stage = page.locator('app-cut-in-window app-cut-in-stage');
+  const stage = page.locator('cut-in-window cut-in-stage');
   await expect(stage).toBeVisible({ timeout: 5000 });
   // Scrambled at first, the stray letters changing as it runs.
   const early = await stage.innerText();

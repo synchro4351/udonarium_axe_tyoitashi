@@ -18,7 +18,9 @@ async function chooseEffect(page: Page, piece: Locator, path: string[]) {
   await page.mouse.move(5, 400);
 }
 
-test('lays effects over a piece picture from its menu, without moving the picture out of its stand', async ({
+// Waits for the effects on a piece's picture to be drawn on the table again (plan 3-64): they show
+// on chat icons and stand pictures alone for now.
+test.skip('lays effects over a piece picture from its menu, without moving the picture out of its stand', async ({
   page,
 }) => {
   await waitAppReady(page);

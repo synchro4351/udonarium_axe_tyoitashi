@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test';
 
-import { waitAppReady } from './helpers';
+import { spotOnPiece, waitAppReady } from './helpers';
 import { settle } from './see-through-helpers';
 
 test('opens a character sheet on a double click of the piece, as 詳細を表示 does', async ({ page }) => {
@@ -10,7 +10,9 @@ test('opens a character sheet on a double click of the piece, as 詳細を表示
   await settle(piece);
   await expect(page.locator('game-character-sheet')).toHaveCount(0);
 
-  await piece.locator('img.image').first().dblclick();
+  // The table draws the piece, so it is pressed where the table shows it rather than on an element.
+  const spot = await spotOnPiece(piece);
+  await page.mouse.dblclick(spot.x, spot.y);
 
   const sheet = page.locator('game-character-sheet');
   await expect(sheet).toBeVisible({ timeout: 10000 });

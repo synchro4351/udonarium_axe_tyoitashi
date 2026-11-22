@@ -143,7 +143,9 @@ async function splitDragon(page: Page) {
   await expect(panel).toHaveCount(0);
 }
 
-test('splits an existing character and drags its separate hit regions together', async ({ page }) => {
+// Frozen with the parts cut from one picture (plan 3-66): the table draws pieces itself now, and a
+// split character is no longer shown as parts to press. Kept to come back to if the parts are rebuilt.
+test.skip('splits an existing character and drags its separate hit regions together', async ({ page }) => {
   await splitDragon(page);
   const head = page
     .locator('game-character')
@@ -203,7 +205,9 @@ test('splits an existing character and drags its separate hit regions together',
   expect(xml).toContain('HP');
 });
 
-test('renames a group and its part, then copies every part independently', async ({ page }) => {
+// Frozen with the parts cut from one picture (plan 3-66): the table draws pieces itself now, and a
+// split character is no longer shown as parts to press. Kept to come back to if the parts are rebuilt.
+test.skip('renames a group and its part, then copies every part independently', async ({ page }) => {
   await splitDragon(page);
   const tokens = page.locator('game-character');
   const head = tokens.filter({ has: page.getByTestId('part-name').filter({ hasText: '頭部' }) });
@@ -226,7 +230,9 @@ test('renames a group and its part, then copies every part independently', async
   await expect(tokens.getByTestId('group-name')).toHaveCount(2);
 });
 
-test('relinks selected parts after unlinking without losing their crop', async ({ page }) => {
+// Frozen with the parts cut from one picture (plan 3-66): the table draws pieces itself now, and a
+// split character is no longer shown as parts to press. Kept to come back to if the parts are rebuilt.
+test.skip('relinks selected parts after unlinking without losing their crop', async ({ page }) => {
   await splitDragon(page);
   const tokens = page.locator('game-character');
   const head = tokens.filter({ has: page.getByTestId('part-name').filter({ hasText: '頭部' }) });
