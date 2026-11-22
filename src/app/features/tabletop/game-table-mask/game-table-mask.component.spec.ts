@@ -403,6 +403,20 @@ describe('GameTableMaskComponent', () => {
       fixture.detectChanges();
       expect(words()!.style.textShadow).toBe('');
     });
+
+    it('draws the halo round outlined words in the colour the settings give, black where none is chosen', async () => {
+      mask.text = '立入禁止';
+      fixture.detectChanges();
+      await fixture.whenStable();
+      fixture.detectChanges();
+      expect(words()!.style.textShadow).toContain('#000000');
+
+      mask.outlineColor = '#ff00aa';
+      await fixture.whenStable();
+      fixture.detectChanges();
+      expect(words()!.style.textShadow).toContain('#ff00aa');
+      expect(words()!.style.textShadow).not.toContain('#000000');
+    });
   });
 
   describe('the layer drawn in the cells scratched open', () => {

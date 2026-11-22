@@ -48,7 +48,7 @@
           data-mask-text
           [style.font-size.px]="words.size"
           [style.color]="words.color"
-          [style.text-shadow]="words.outline ? writingOutline : null"
+          [style.text-shadow]="words.outline ? writingOutline(words.outlineColor) : null"
         >
           <span class="note-formatted note-formatted-compact block" [innerHTML]="html | safe"></span>
         </div>
@@ -58,7 +58,7 @@
           data-mask-text
           [style.font-size.px]="words.size"
           [style.color]="words.color"
-          [style.text-shadow]="words.outline ? writingOutline : null"
+          [style.text-shadow]="words.outline ? writingOutline(words.outlineColor) : null"
           [textContent]="words.text"
         ></div>
       }

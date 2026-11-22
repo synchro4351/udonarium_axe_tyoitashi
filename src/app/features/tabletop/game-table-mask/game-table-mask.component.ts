@@ -63,10 +63,14 @@ interface MaskWriting {
   readonly size: number;
   readonly color: string;
   readonly outline: boolean;
+  /** The colour of the halo round outlined words, as the mask's settings give it (tyoitashi). */
+  readonly outlineColor: string;
 }
 
-const MASK_WRITING_OUTLINE =
-  '0 0 2px #000, 0 0 3px #000, 1px 1px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000';
+/** The halo drawn round outlined words, in the colour given. */
+export function maskWritingOutline(color: string): string {
+  return `0 0 2px ${color}, 0 0 3px ${color}, 1px 1px 0 ${color}, -1px -1px 0 ${color}, 1px -1px 0 ${color}, -1px 1px 0 ${color}`;
+}
 
 @Component({
   selector: 'game-table-mask',
@@ -319,17 +323,29 @@ export class GameTableMaskComponent {
       this.objectChange.versionOf(mask.identifier)();
       const text = mask.text;
       if (text.trim().length < 1) return null;
-      return { text, size: mask.textSize, color: mask.textColor, outline: mask.textOutline };
+      return {
+        text,
+        size: mask.textSize,
+        color: mask.textColor,
+        outline: mask.textOutline,
+        outlineColor: mask.outlineColor,
+      };
     },
     {
       equal: (a, b) =>
         a === b ||
-        (!!a && !!b && a.text === b.text && a.size === b.size && a.color === b.color && a.outline === b.outline),
+        (!!a &&
+          !!b &&
+          a.text === b.text &&
+          a.size === b.size &&
+          a.color === b.color &&
+          a.outline === b.outline &&
+          a.outlineColor === b.outlineColor),
     }
   );
 
-  /** The dark halo drawn round outlined words. */
-  protected readonly writingOutline = MASK_WRITING_OUTLINE;
+  /** The halo drawn round outlined words, in the colour the mask's settings give. */
+  protected readonly writingOutline = maskWritingOutline;
 
   /** The words drawn as a formatted note, where the mask is set to show them so (tyoitashi); null as typed. */
   readonly formattedWriting = computed(() => {
