@@ -91,8 +91,8 @@ describe('WidgetLayoutService', () => {
     TestBed.inject(PanelDockService).insets.set({ left: 300, right: 200 });
     const service = TestBed.inject(WidgetLayoutService);
 
-    expect(service.keepInView({ left: 40, top: 60 }, 100, 40).left).toBe(308);
-    expect(service.keepInView({ left: 99_999, top: 60 }, 100, 40).left).toBe(window.innerWidth - 200 - 100 - 8);
+    expect(service.keepInView({ left: 40, top: 60 }, 100, 40).left).toBe(300);
+    expect(service.keepInView({ left: 99_999, top: 60 }, 100, 40).left).toBe(window.innerWidth - 200 - 100);
   });
 
   it('still moves a widget where the browser refuses to keep where it was left', () => {

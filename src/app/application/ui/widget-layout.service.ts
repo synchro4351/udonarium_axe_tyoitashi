@@ -75,11 +75,13 @@ export class WidgetLayoutService {
    */
   keepInView(spot: WidgetSpot, width: number, height: number): WidgetSpot {
     const margin = 8;
-    // Clear of the panels docked at the sides as well, as a window made narrower is (tyoitashi).
+    // Clear of the panels docked at the sides as well, as a window made narrower is, standing against a
+    // docked panel's edge rather than a margin off it (tyoitashi).
     const { left: leftDock, right: rightDock } = this.dockInsets();
-    const least = margin + leftDock;
+    const least = leftDock > 0 ? leftDock : margin;
+    const most = window.innerWidth - (rightDock > 0 ? rightDock : margin) - width;
     return {
-      left: clamp(spot.left, least, Math.max(least, window.innerWidth - rightDock - width - margin)),
+      left: clamp(spot.left, least, Math.max(least, most)),
       top: clamp(spot.top, margin, Math.max(margin, window.innerHeight - height - margin)),
     };
   }
